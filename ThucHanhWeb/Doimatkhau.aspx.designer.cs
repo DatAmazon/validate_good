@@ -11,7 +11,7 @@ namespace ThucHanhWeb
 {
 
 
-    public partial class ChangePass
+    public partial class Doimatkhau
     {
 
         /// <summary>
@@ -24,6 +24,33 @@ namespace ThucHanhWeb
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// lbltitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltitle;
+
+        /// <summary>
+        /// lblName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblName;
+
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
         /// txtOldPass control.
         /// </summary>
         /// <remarks>
@@ -33,22 +60,22 @@ namespace ThucHanhWeb
         protected global::System.Web.UI.WebControls.TextBox txtOldPass;
 
         /// <summary>
-        /// reOldPass control.
+        /// roldPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reOldPass;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator roldPass;
 
         /// <summary>
-        /// reguOldPass control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator reguOldPass;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// txtNewPass control.
@@ -60,49 +87,22 @@ namespace ThucHanhWeb
         protected global::System.Web.UI.WebControls.TextBox txtNewPass;
 
         /// <summary>
-        /// reNewPass control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reNewPass;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// reguNewPass control.
+        /// lblRes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator reguNewPass;
-
-        /// <summary>
-        /// txtNewPassAgain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPassAgain;
-
-        /// <summary>
-        /// reRePassAgain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reRePassAgain;
-
-        /// <summary>
-        /// comRePassAgain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator comRePassAgain;
+        protected global::System.Web.UI.WebControls.Label lblRes;
 
         /// <summary>
         /// sumChangePass control.
@@ -114,30 +114,30 @@ namespace ThucHanhWeb
         protected global::System.Web.UI.WebControls.ValidationSummary sumChangePass;
 
         /// <summary>
-        /// lblResultChangePass control.
+        /// btnDoiMatKhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultChangePass;
+        protected global::System.Web.UI.WebControls.Button btnDoiMatKhau;
 
         /// <summary>
-        /// btnChangePass control.
+        /// btnThemTin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChangePass;
+        protected global::System.Web.UI.WebControls.Button btnThemTin;
 
         /// <summary>
-        /// btnLogin control.
+        /// Label1x control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnLogin;
+        protected global::System.Web.UI.WebControls.Label Label1x;
     }
 }

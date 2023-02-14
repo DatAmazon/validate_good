@@ -1,4 +1,5 @@
 ﻿<%--Họ tên: Kiều Đức Đạt - Mã SV: 18A10010175 - lớp : W021TH2022.002--%>
+
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dangnhap.aspx.cs" Inherits="ThucHanhWeb.Dangnhap" %>
 
 <!DOCTYPE html>
@@ -12,6 +13,13 @@
 
         #sumLogin {
             margin-left: 200px;
+        }
+
+        .auto-style1 {
+            margin-left: 184px;
+        }
+        #btnLogin{
+            margin-left:100px;
         }
     </style>
 </head>
@@ -29,30 +37,31 @@
                 <asp:RegularExpressionValidator ID="reguName" runat="server" ControlToValidate="txtName" ValidationExpression=".{3,}"
                     ErrorMessage="Tên tối thiểu phải 3 ký tự và không chứa ký tự đặc biệt" ForeColor="Red" ValidationGroup="loginGroup" Display="None"></asp:RegularExpressionValidator>
             </p>
+
             <p>
                 Mật khẩu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtPass" runat="server" Width="184px" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rePass" runat="server" ControlToValidate="txtPass"
+                <asp:RequiredFieldValidator ID="rePass" runat="server" ControlToValidate="txtPass"
                     ErrorMessage="Mật khẩu không được để trống" ForeColor="Red" Display="None" ValidationGroup="loginGroup"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="reguPass" runat="server" ValidationExpression=".{3,}" Display="None"
                     ControlToValidate="TxtPass" ErrorMessage="Mật khẩu tối thiệu 3 ký tự" ForeColor="Red" ValidationGroup="loginGroup"></asp:RegularExpressionValidator>
             </p>
+
             <p>
                 <asp:Label ID="lblErrorPass" runat="server" ForeColor="Red"></asp:Label>
             </p>
+
+            <asp:ValidationSummary ID="sumLogin" runat="server" ForeColor="Red" HeaderText="" ValidationGroup="loginGroup" Width="599px" CssClass="auto-style1" />
+
             <p>
-                <asp:ValidationSummary ID="sumLogin" runat="server" ForeColor="Red" HeaderText="" ValidationGroup="loginGroup" Width="599px" />
+                <asp:Button ID="btnLogin" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" Width="91px" ValidationGroup="loginGroup" />
             </p>
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnLogin" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" Width="91px" ValidationGroup="loginGroup" />
-                &nbsp;&nbsp;
-                <asp:Button ID="btnChangePass" runat="server" Height="30px" Display="Dynamic" OnClick="btnChangePass_Click" Text="Đổi mật khẩu" Width="98px" Visible="False" PostBackUrl="~/ChangePass.aspx" />
-                &nbsp;
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="CreateAcc" runat="server" OnClick="CreateAcc_Click1">Đăng ký</asp:LinkButton>
-            </p>
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <%--<asp:LinkButton ID="redirectTTin" runat="server" OnClick="redirectTTin_Click">Thêm tin</asp:LinkButton>--%>
+                </p>
         </div>
     </form>
 </body>

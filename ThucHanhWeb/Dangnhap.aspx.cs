@@ -34,52 +34,44 @@ namespace ThucHanhWeb
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtPass.Text == "")
+            String connectionString = ConfigurationManager.ConnectionStrings["connectToDB"].ConnectionString;
+            SqlConnection myCnn = new SqlConnection(connectionString);
+            myCnn.Open();
+            SqlCommand myCmd = new SqlCommand("tblUsers_login", myCnn);
+            myCmd.CommandType = CommandType.StoredProcedure;
+            myCmd.Parameters.AddWithValue("@userName", txtName.Text);
+            myCmd.Parameters.AddWithValue("@Password", encryption(txtPass.Text));
+            SqlDataReader rd = myCmd.ExecuteReader();
+            if (rd.HasRows)
             {
-                lblErrorPass.Text = "Bạn phải nhập đầy đủ tên truy cập và mật khẩu!";
+                while (rd.Read())
+                {
+                    Session["user_id"] = rd.GetInt32(0);
+                    Session["user_name"] = rd.GetString(1);
+                    Session["user_pass"] = rd.GetString(2);
+                }
+                Response.Redirect("~/Themtin.aspx");
             }
             else
             {
-                String ConectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-                SqlConnection Cnn = new SqlConnection(ConectionString);
-                Cnn.Open();
-                SqlCommand Cmd = new SqlCommand("UserLogin", Cnn);
-                Cmd.CommandType = CommandType.StoredProcedure;
-                Cmd.Parameters.AddWithValue("@sUserName", txtName.Text);
-                Cmd.Parameters.AddWithValue("@sPassword", encryption(txtPass.Text.ToString());
-                SqlDataReader rd = Cmd.ExecuteReader();
-                if (rd.HasRows)
-                {
-                    while (rd.Read())
-                    {
-                        Session["user_id"] = rd.GetInt32(0);
-                        Session["user_name"] = rd.GetString(1);
-                        Session["user_pass"] = rd.GetString(2);
-                    }
-                    lblErrorPass.Text = "Đăng nhập thành công";
-                }
-                else
-                {
-                    lblErrorPass.Text = "Đăng nhập thất bại";
-                }
-                rd.Close();
-                Cmd.Dispose();
-                Cnn.Close();
-                Cnn.Dispose();
-                CreateAcc.Visible = false;
-                btnLogin.Visible = false;
-                btnChangePass.Visible = true;
+                lblErrorPass.Text = "Đăng nhập thất bại";
             }
+            rd.Close();
+            myCmd.Dispose();
+            myCnn.Close();
+            myCnn.Dispose();
+
         }
 
         protected void btnChangePass_Click(object sender, EventArgs e)
         {
-            lblErrorPass.Text = "";
+            Response.Redirect("~/Doimatkhau.aspx");
         }
 
         protected void CreateAcc_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("Dangky.aspx");
+            Response.Redirect("~/Dangky.aspx");
         }
+
     }
 }

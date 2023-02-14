@@ -67,19 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChangePass.aspx" />
+    <Content Include="ChangeInfor.aspx" />
     <Content Include="Dangky.aspx" />
     <Content Include="Dangnhap.aspx" />
+    <Content Include="Doimatkhau.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Infor.aspx" />
+    <Content Include="Themtin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangePass.aspx.cs">
-      <DependentUpon>ChangePass.aspx</DependentUpon>
+    <Compile Include="ChangeInfor.aspx.cs">
+      <DependentUpon>ChangeInfor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChangePass.aspx.designer.cs">
-      <DependentUpon>ChangePass.aspx</DependentUpon>
+    <Compile Include="ChangeInfor.aspx.designer.cs">
+      <DependentUpon>ChangeInfor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dangky.aspx.cs">
       <DependentUpon>Dangky.aspx</DependentUpon>
@@ -95,10 +98,31 @@
     <Compile Include="Dangnhap.aspx.designer.cs">
       <DependentUpon>Dangnhap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Doimatkhau.aspx.cs">
+      <DependentUpon>Doimatkhau.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doimatkhau.aspx.designer.cs">
+      <DependentUpon>Doimatkhau.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infor.aspx.cs">
+      <DependentUpon>Infor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Infor.aspx.designer.cs">
+      <DependentUpon>Infor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Themtin.aspx.cs">
+      <DependentUpon>Themtin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Themtin.aspx.designer.cs">
+      <DependentUpon>Themtin.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

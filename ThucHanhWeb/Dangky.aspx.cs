@@ -18,7 +18,6 @@ namespace ThucHanhWeb
         {
 
         }
-
         public string encryption(string password)
         {
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -30,77 +29,30 @@ namespace ThucHanhWeb
             {
                 encryptdata.Append(encrypt[i].ToString());
             }
-                return encryptdata.ToString();
+            return encryptdata.ToString();
         }
         protected void btnResgister_Click(object sender, EventArgs e)
         {
-            //string userName = txtName.Text;
-            //string userPassword = txtPass.Text;
-            //string passEncrypted = encryption(userPassword);
+            string ConnectionString = ConfigurationManager.ConnectionStrings["connectToDB"].ConnectionString;
 
-            if (txtPass.Text != txtRePass.Text)
+            SqlConnection myCnn = new SqlConnection(ConnectionString);
+            myCnn.Open();
+            SqlCommand myCmd = new SqlCommand("tblUsers_register", myCnn);
+            myCmd.CommandType = CommandType.StoredProcedure;
+            myCmd.Parameters.AddWithValue("@userName", txtName.Text);
+            myCmd.Parameters.AddWithValue("passWord", encryption(txtPass.Text.ToString()));
+            int i = myCmd.ExecuteNonQuery();
+            if (i != 0)
             {
-                lblErrorPass.Text = "Mật khẩu không khớp!";
+                lblErrorPass.Text = "Register successfully";
             }
             else
             {
-                string ConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
-                SqlConnection myCnn = new SqlConnection(ConnectionString);
-                myCnn.Open();
-                SqlCommand myCmd = new SqlCommand("UserResgister", myCnn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.AddWithValue("@sUserName", txtName.Text);
-                myCmd.Parameters.AddWithValue("@sPassword", encryption(txtPass.Text));
-                SqlDataReader rd = myCmd.ExecuteReader();
-                if (rd.HasRows)
-                {
-                    while (rd.Read())
-                    {
-                        Session["user_id"] = rd.GetInt32(0);
-                        Session["user_name"] = rd.GetString(1);
-                        //Session["user_pass"] = rd.GetString(2);
-                    }
-                    Response.Redirect("Dangnhap.aspx");
-                }
-                rd.Close();
-                lblErrorPass.Text = "Đăng ký thành công";
-                myCmd.Dispose();
-                myCnn.Close();
-                myCnn.Dispose();
+                lblErrorPass.Text = "Resgister fail";
             }
-
-            //protected void btnLogin_Click(object sender, EventArgs e)
-            //{
-            //    if (txtName.Text == "" || txtPass.Text == "")
-            //    {
-            //        lblErrorPass.Text = "Bạn phải nhập đầy đủ tên truy cập và mật khẩu!";
-            //    }
-            //    else
-            //    {
-            //        String ConectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            //        SqlConnection Cnn = new SqlConnection(ConectionString);
-            //        Cnn.Open();
-            //        SqlCommand Cmd = new SqlCommand("UserLogin", Cnn);
-            //        Cmd.CommandType = CommandType.StoredProcedure;
-            //        Cmd.Parameters.AddWithValue("@sUserName", txtName.Text);
-            //        Cmd.Parameters.AddWithValue("@sPassword", txtPass.Text);
-
-            //        Cmd.ExecuteNonQuery();
-            //        lblErrorPass.Text = "Đăng nhập thành công!";
-            //        Cmd.Dispose();
-            //        Cnn.Close();
-            //        Cnn.Dispose();
-            //    }
-            //}
-        }
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            lblErrorPass.Text = "dấdas";
-        }
-
-        protected void btnChangePass_Click(object sender, EventArgs e)
-        {
-            //Response.Redirect("Dangnhap.aspx");
+            myCmd.Dispose();
+            myCnn.Close();
+            myCnn.Dispose();
         }
 
         protected void lbtLogin_Click(object sender, EventArgs e)

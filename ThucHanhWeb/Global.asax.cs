@@ -19,7 +19,8 @@ namespace ThucHanhWeb
         {
             Session["user_id"] = 0;
             Session["user_pass"] = "";
-
+            Session["user_name"] = "";
+            Session["user_id1"] = 1;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
